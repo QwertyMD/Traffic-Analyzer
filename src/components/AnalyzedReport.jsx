@@ -90,14 +90,14 @@ const AnalyzedReport = ({ result }) => {
                   Traffic Flow
                 </h3>
               </div>
-              {result.flow_rate && (
+              {result.road_condition && (
                 <div className="p-4 md:p-5">
                   <div className="bg-slate-50 p-4 rounded-lg hover:bg-slate-100 transition-colors">
                     <span className="block text-sm text-slate-500 mb-1">
-                      Total Vehicles/Hour
+                      Road Condition
                     </span>
                     <span className="font-medium text-slate-900">
-                      {result.flow_rate.total_vehicles_per_hour || "N/A"}
+                      {result.road_condition.status || "N/A"}
                     </span>
                   </div>
                 </div>

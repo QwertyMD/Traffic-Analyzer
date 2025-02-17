@@ -35,11 +35,11 @@ const TrafficAnalysis = ({ result, setResult, showReport, setShowReport }) => {
       const genAI = new GoogleGenerativeAI(
         "AIzaSyDdx1uCYQo5NgFTnR7FCNVRObWeBKaWpAI"
       );
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
       const result = await model.generateContent([
         `
-         [OUTPUT FORMAT SHALL BE LIKE THE GIVEN FORMAT AND MAKE SURE ITS LIKE THE GIVEN JSOn]
+         [OUTPUT FORMAT SHALL BE LIKE THE GIVEN FORMAT AND MAKE SURE ITS LIKE THE GIVEN JSON ALSO DONT FORGET TO GIVE THE VEHICLES LIKE CARS BUSES TRUCKS MOTORCYCLES AND OTHERS]
     {
   "traffic_density": "",
   "vehicles": {
