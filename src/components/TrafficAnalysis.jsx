@@ -36,12 +36,56 @@ const TrafficAnalysis = () => {
       console.log("Base64 image:", base64);
 
       // Initialize Google Generative AI
-      const genAI = new GoogleGenerativeAI("AIzaSyDdx1uCYQo5NgFTnR7FCNVRObWeBKaWpAI");
+      const genAI = new GoogleGenerativeAI(
+        "AIzaSyDdx1uCYQo5NgFTnR7FCNVRObWeBKaWpAI"
+      );
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
       // Analyze the image
       const result = await model.generateContent([
-        "Tell me about this image.",
+        `
+         [OUTPUT FORMAT SHALL BE LIKE THE GIVEN FORMAT AND MAKE SURE ITS LIKE THE GIVEN JSOn]
+    {
+  "traffic_density": "",
+  "vehicles": {
+    "cars": "",
+    "buses": "",
+    "trucks": "",
+    "motorcycles": "",
+    "other": ""
+  },
+  "road_condition": {
+    "status": "",
+    "condition_score": "",
+    "details": ""
+  },
+  "incident_detection": {
+    "incidents": "",
+    "details": ""
+  },
+  "environmental_conditions": {
+    "visibility": "",
+    "weather": "",
+    "temperature": ""
+  },
+  "data_timestamp": "",
+  "location": {
+    "latitude": "",
+    "longitude": "",
+    "road_segment": ""
+  },
+  "flow_rate": {
+    "cars_per_hour": "",
+    "total_vehicles_per_hour": ""
+  },
+  "average_speed": "",
+  "congestion_level": "",
+  "future_predictions": {
+    "15_min": "",
+    "1_hour": ""
+  }
+}
+         `,
         {
           inlineData: {
             mimeType: blob.type,

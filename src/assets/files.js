@@ -19,7 +19,9 @@ async function filesCreateImage(file) {
   );
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const result = await model.generateContent([
-    `{
+    `
+  [OUTPUT FORMAT SHALL BE LIKE THE GIVEN FORMAT AND MAKE SURE ITS LIKE THE GIVEN JSOn]
+    {
   "traffic_density": "",
   "vehicles": {
     "cars": "",
