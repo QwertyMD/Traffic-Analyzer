@@ -101,7 +101,7 @@ const TrafficAnalysis = ({ result, setResult, showReport, setShowReport }) => {
       try {
         const jsonResult = JSON.parse(jsonMatch[0]);
         setResult(jsonResult);
-        setShowReport(true); // Show the report after successful analysis
+        setShowReport(true);
       } catch (parseError) {
         console.error("Error parsing result:", parseError);
         setResult(null);
@@ -133,11 +133,9 @@ const TrafficAnalysis = ({ result, setResult, showReport, setShowReport }) => {
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
                   <Upload className="w-10 h-10 text-gray-400 mb-3" />
                   <p className="mb-2 text-sm text-gray-500">
-                    <span className="font-semibold">Click to upload</span> or
-                    drag and drop
-                  </p>
-                  <p className="text-xs text-gray-500">
-                    PNG, JPG, or JPEG (MAX. 800x400px)
+                    <span className="font-semibold">
+                      Click to upload an Image
+                    </span>
                   </p>
                 </div>
                 <input
