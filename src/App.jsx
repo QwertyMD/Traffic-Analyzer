@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import TrafficAnalysis from "./components/TrafficAnalysis";
 import { User } from "lucide-react";
+import AnalyzedReport from "./components/AnalyzedReport";
 
 const App = () => {
   const currentTime = new Date().getHours();
+  const [result, setResult] = useState([]);
+  const [showReport, setShowReport] = useState(false);
 
   const getGreeting = () => {
     if (currentTime < 12) return "Good Morning";
     if (currentTime < 17) return "Good Afternoon";
     return "Good Evening";
   };
-
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
@@ -25,7 +27,13 @@ const App = () => {
           <p className="text-gray-600">Welcome to Traffic Analysis Dashboard</p>
         </div>
       </div>
-      <TrafficAnalysis />
+      <TrafficAnalysis
+        result={result}
+        setResult={setResult}
+        showReport={showReport}
+        setShowReport={setShowReport}
+      />
+      {showReport && <AnalyzedReport result={result} />}
     </div>
   );
 };
